@@ -13,4 +13,8 @@ class Bank
   def withdraw(amount)
     @balance -= amount
   end
+
+  def print_statement
+    return @balance
+  end
 end

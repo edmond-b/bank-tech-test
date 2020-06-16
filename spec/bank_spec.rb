@@ -19,4 +19,10 @@ describe Bank do
       expect(subject.balance).to eq(50)
     end
   end
+
+  describe '.print_statement' do
+    it 'prints the balance' do
+      expect(subject.print_statement).to eq(subject.balance)
+    end
+  end
 end
