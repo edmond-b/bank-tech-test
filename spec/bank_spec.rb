@@ -7,22 +7,26 @@ describe Bank do
 
   describe '.deposit' do
     it 'can add to the balance' do
-      subject.deposit(100)
+      time = Time.now
+      subject.deposit(100, time)
       expect(subject.balance).to eq(100)
     end
   end
 
   describe '.withdraw' do
     it 'lets you withdraw money' do
-      subject.deposit(100)
+      time = Time.now
+      subject.deposit(100, time)
       subject.withdraw(50)
       expect(subject.balance).to eq(50)
     end
   end
 
   describe '.print_statement' do
-    it 'prints the balance' do
-      expect(subject.print_statement).to eq(subject.balance)
+    it 'prints a history of deposits' do
+      time = Time.now
+      subject.deposit(100, time)
+      expect(subject.print_statement).to eq([[time,100,subject.balance]])
     end
   end
 end
