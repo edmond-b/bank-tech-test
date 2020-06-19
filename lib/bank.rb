@@ -9,14 +9,18 @@ class Bank
 
   def deposit(amount, time=Time.now)
     @balance += amount
-    @history << [time,amount,@balance]
+    @history << [time,"||","||",amount,"||",@balance]
   end
 
-  def withdraw(amount)
+  def withdraw(amount,time=Time.now)
     @balance -= amount
+    @history << [time,"||",amount,"||","||",@balance]
   end
 
   def print_statement
-    return @history
+    puts "date || credit || debit || balance"
+    history.each { |transaction|
+    print transaction }
+    # return @history
   end
 end
